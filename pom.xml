@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hermanovich.accountingsystem</groupId>
+    <artifactId>accountingsystem</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+
+    <modules>
+        <module>controller</module>
+        <module>dto</module>
+        <module>dao</module>
+        <module>model</module>
+        <module>service</module>
+        <module>common</module>
+        <module>util</module>
+    </modules>
+
+    <properties>
+        <lombok.version>1.18.16</lombok.version>
+        <maven.compiler.version>3.8.1</maven.compiler.version>
+        <hibernate.version>5.4.22.Final</hibernate.version>
+        <mysql.connector.java.version>8.0.21</mysql.connector.java.version>
+        <spring.version>5.3.1</spring.version>
+        <spring.security.version>5.3.5.RELEASE</spring.security.version>
+        <spring.boot.version>2.3.5.RELEASE</spring.boot.version>
+        <spring.security.test.version>5.4.1</spring.security.test.version>
+        <jjwt.version>0.9.1</jjwt.version>
+        <mockito.version>3.6.28</mockito.version>
+        <surefire.version>3.0.0-M5</surefire.version>
+        <maven.checkstyle.version>3.1.1</maven.checkstyle.version>
+        <restdocs.version>2.0.5.RELEASE</restdocs.version>
+        <junit-platform-launcher.version>1.7.0</junit-platform-launcher.version>
+        <junit-jupiter.version>5.7.0</junit-jupiter.version>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.5.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>8</source>
+                    <target>8</target>
+                    <annotationProcessorPaths>
+                        <annotationProcessorPath>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </annotationProcessorPath>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${maven.checkstyle.version}</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <configLocation>config/checkstyle.xml</configLocation>
+                    <propertyExpansion>checkstyle.config.path=config/</propertyExpansion>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>

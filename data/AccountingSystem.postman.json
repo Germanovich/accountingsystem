@@ -1,0 +1,1810 @@
+{
+	"info": {
+		"_postman_id": "a58cacb7-f948-4968-9355-f89f5b066f13",
+		"name": "AccountingSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authntication",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"Senla123\",\r\n    \"password\": \"Senla123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/authorization/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"authorization",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registerUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"Senla123\",\r\n    \"password\": \"Senla123\",\r\n    \"profile\": {\r\n        \"name\": \"Bishop\",\r\n        \"surname\": \"Carey\",\r\n        \"sex\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/authorization/registration",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"authorization",
+								"registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTZW5sYTEyMyIsImV4cCI6MTYwOTM2MjAwMH0.J3rlBCmI_AiYJDoc5E9dcw6JL2XS_I_LIPOx2j0ta5r7Z0Kc_Sspn-of76x2YXUbGJ9gFelqqKzf3g0muofLgQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/authorization/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"authorization",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "updatePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA4NjcwODAwfQ.gpk3kvgWHEsLISvYUuMOyg-jaNmLSv9niyWEY58VnNECWmh_0ldNp8ZtuoB-Foth4JE0lzYq-0818JaN3JgZpw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/users/update/password",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"users",
+								"update",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA5MzYyMDAwfQ.cUydUFOMjCUDRr51DsB29xSJ7zuIZKwO8Uz97VC5zL5UDy-qsqC7R5XO6X0furc_9vrLOeNyy6iP-fIFjYli0w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"Admin2\",\r\n    \"password\": \"test\",\r\n    \"profile\": {\r\n        \"name\": \"Bishop\",\r\n        \"surname\": \"Carey\",\r\n        \"sex\": 1\r\n    },\r\n    \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA5MzYyMDAwfQ.cUydUFOMjCUDRr51DsB29xSJ7zuIZKwO8Uz97VC5zL5UDy-qsqC7R5XO6X0furc_9vrLOeNyy6iP-fIFjYli0w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/users/8",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"users",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA4NDk4MDAwfQ.NrUnHFaxSlYhCo6dAc-Jdq3-zd_i8I4stF5DSTWbHgqTur9-aYRtlwdeYhC7lhPDPXT3QqGzcJVlAvuXJN3YIQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"login\": \"Login\",\r\n    \"password\": \"test\",\r\n    \"profile\": {\r\n        \"id\": 1,\r\n        \"name\": \"Bishop\",\r\n        \"surname\": \"Carey\",\r\n        \"sex\": 1\r\n    },\r\n    \"role\": \"User\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA4NDk4MDAwfQ.NrUnHFaxSlYhCo6dAc-Jdq3-zd_i8I4stF5DSTWbHgqTur9-aYRtlwdeYhC7lhPDPXT3QqGzcJVlAvuXJN3YIQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/users/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"users",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUsers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJFdmllNzkiLCJleHAiOjE2MDc5Nzk2MDB9.VW_Z-RVzQKgkAXhacjJ0bUvDPrJ9xDihi9KlL5BI9GXKL-HmqBP4ITQ8OuxUrnxJT8H-fRkXIHyM3WZ-Z4Achg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserInfo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA4NzU3MjAwfQ.psiZkoJCAU8wdah9joTfo5kXJxCc1ceJEN8NWiS15l1S1TfQydqatCSdYEH7itGVr89ahB2Gb2ah4yBgK7xWWQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/users/info",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"users",
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Catalog",
+			"item": [
+				{
+					"name": "getAllCatalogs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/catalogs",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"catalogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCatalogsByParentCatalogId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/catalogs/1/childCatalogs",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"catalogs",
+								"1",
+								"childCatalogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCatalog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/catalogs/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"catalogs",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCatalog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA4MTUyNDAwfQ.Yy_K6yFVmwEQ0w6W0t7VB6AxOid39eU-n5NicIc0D1ROP_2HpIxgdul_lkCBpTAgv4l97c5-mEneMUUAs2AWlQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Amphibious vehicle\",\r\n    \"parentCatalog\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/catalogs",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"catalogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeCatalog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/catalogs/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"catalogs",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCatalog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 7,\r\n    \"name\": \"Amphibious\",\r\n    \"parentCatalog\": {\r\n        \"id\": 4\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/catalogs",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"catalogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCarListByCatalogId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/catalogs/2/cars",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"catalogs",
+								"2",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Car",
+			"item": [
+				{
+					"name": "addCar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"catalog\": {\r\n        \"id\": 2\r\n    },\r\n    \"firm\": {\r\n        \"id\": 5\r\n    },\r\n    \"model\": \"DB11 Coupe\",\r\n    \"carStatus\": \"AVAILABLE\",\r\n    \"price\": 140.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/cars",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3ODkzMjAwfQ.KQm-UIgrg8h4B2Fj2IvrqRFJI3N9_0bCZuzwgIE2yc4JlEyzhdHywWDfEqfOltMMnEORRyGYporn81nUVvuUyw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/cars/144",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"cars",
+								"144"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3ODkzMjAwfQ.KQm-UIgrg8h4B2Fj2IvrqRFJI3N9_0bCZuzwgIE2yc4JlEyzhdHywWDfEqfOltMMnEORRyGYporn81nUVvuUyw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 17,\r\n    \"catalog\": {\r\n        \"id\": 2\r\n    },\r\n    \"firm\": {\r\n        \"id\": 5\r\n    },\r\n    \"model\": \"DB11 Coupe\",\r\n    \"carStatus\": \"AVAILABLE\",\r\n    \"price\": 140.09\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/cars",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changeCarStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/cars/6?status=AVAILABLE",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"cars",
+								"6"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "AVAILABLE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/cars/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"cars",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCars",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTZW5sYTEyMyIsImV4cCI6MTYwOTM2MjAwMH0.J3rlBCmI_AiYJDoc5E9dcw6JL2XS_I_LIPOx2j0ta5r7Z0Kc_Sspn-of76x2YXUbGJ9gFelqqKzf3g0muofLgQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/cars?type=SORT_CAR_BY_MODEL&status=AVAILABLE",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"cars"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "SORT_CAR_BY_MODEL"
+								},
+								{
+									"key": "status",
+									"value": "AVAILABLE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCountOrders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA5MTg5MjAwfQ.42_wcDISuRpvBoCOQ-aBD-A-nQbdPFKX2Pl_TSoxNl-H6r6c-yM8YV6XoOBuUu6KTHhMfliG19wwt7MaEeqhVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/cars/1/countOrders",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"cars",
+								"1",
+								"countOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCountCarsByStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA5MTg5MjAwfQ.42_wcDISuRpvBoCOQ-aBD-A-nQbdPFKX2Pl_TSoxNl-H6r6c-yM8YV6XoOBuUu6KTHhMfliG19wwt7MaEeqhVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/cars/countCars?status=AVAILABLE",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"cars",
+								"countCars"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "AVAILABLE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrdersByCarId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA5MTg5MjAwfQ.42_wcDISuRpvBoCOQ-aBD-A-nQbdPFKX2Pl_TSoxNl-H6r6c-yM8YV6XoOBuUu6KTHhMfliG19wwt7MaEeqhVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/cars/1/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"cars",
+								"1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ContactPerson",
+			"item": [
+				{
+					"name": "addContactPerson",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firm\": {\r\n        \"id\": 1\r\n    },\r\n    \"telephone\": \"375294567587\",\r\n    \"name\": \"Mia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/contacts",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteContactPerson",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/contacts/12",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"contacts",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateContactPerson",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 11,\r\n    \"firm\": {\r\n        \"id\": 5\r\n    },\r\n    \"telephone\": \"375294776566\",\r\n    \"name\": \"Emily\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/contacts",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getContactPerson",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/contacts/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"contacts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getContactPersonList",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/contacts?type=SORT_CONTACT_PERSON_BY_NAME",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "SORT_CONTACT_PERSON_BY_NAME"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Firm",
+			"item": [
+				{
+					"name": "addFirm",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Buick\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/firms",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"firms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteFirm",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/firms/8",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"firms",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateFirm",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":6,\r\n    \"name\": \"Buick\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/firms",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"firms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFirm",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/firms/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"firms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFirms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/firms?type=SORT_FIRM_BY_NAME",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"firms"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "SORT_FIRM_BY_NAME"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getContactPersonListByFirm",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA4MjM4ODAwfQ.PgDWTQ4dPH38meGZ2Fpf3Eb7R3vR7LLCVrwUrmtmkxK-pKQULIEZ_xJzaaOGNr_femO1j19gTQk4PVUwVNPyDA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/firms/1/contacts",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"firms",
+								"1",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCarListByFirmId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/firms/2/cars",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"firms",
+								"2",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "addOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA4NjcwODAwfQ.gpk3kvgWHEsLISvYUuMOyg-jaNmLSv9niyWEY58VnNECWmh_0ldNp8ZtuoB-Foth4JE0lzYq-0818JaN3JgZpw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"car\": {\r\n        \"id\": 4\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/orders?days=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "days",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/orders/8",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"orders",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "closeOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA4NzU3MjAwfQ.psiZkoJCAU8wdah9joTfo5kXJxCc1ceJEN8NWiS15l1S1TfQydqatCSdYEH7itGVr89ahB2Gb2ah4yBgK7xWWQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/orders/completion",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"orders",
+								"completion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 9,\r\n    \"user\": {\r\n        \"id\": 1\r\n    },\r\n    \"car\": {\r\n        \"id\": 1\r\n    },\r\n    \"startDate\": \"2020-11-24T17:58:23.000+00:00\",\r\n    \"endDate\": \"2020-12-01T17:58:23.000+00:00\",\r\n    \"price\": 143.33\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA4NDk4MDAwfQ.NrUnHFaxSlYhCo6dAc-Jdq3-zd_i8I4stF5DSTWbHgqTur9-aYRtlwdeYhC7lhPDPXT3QqGzcJVlAvuXJN3YIQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/orders/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA5Mjc1NjAwfQ.he8LJHtkH3g7yG-WOfpbv1Vl2JgjL1iDmv0U0dAc_uGKgJynKWHDhw2YGrFERFV1ihqo8DffWZ3AcWwekZr7Jg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/orders?type=SORT_ORDER_BY_PRICE&status=NOT_EXPIRED",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "SORT_ORDER_BY_PRICE"
+								},
+								{
+									"key": "status",
+									"value": "NOT_EXPIRED"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAmountMoney",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA5MTg5MjAwfQ.42_wcDISuRpvBoCOQ-aBD-A-nQbdPFKX2Pl_TSoxNl-H6r6c-yM8YV6XoOBuUu6KTHhMfliG19wwt7MaEeqhVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/orders/amountMoney?days=50",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"orders",
+								"amountMoney"
+							],
+							"query": [
+								{
+									"key": "days",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserOrders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA5MTg5MjAwfQ.42_wcDISuRpvBoCOQ-aBD-A-nQbdPFKX2Pl_TSoxNl-H6r6c-yM8YV6XoOBuUu6KTHhMfliG19wwt7MaEeqhVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/orders/histories",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"orders",
+								"histories"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Request",
+			"item": [
+				{
+					"name": "addRequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA4NDk4MDAwfQ.NrUnHFaxSlYhCo6dAc-Jdq3-zd_i8I4stF5DSTWbHgqTur9-aYRtlwdeYhC7lhPDPXT3QqGzcJVlAvuXJN3YIQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"car\": {\r\n        \"id\": 4\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/requests",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTZW5sYTEyMyIsImV4cCI6MTYwOTM2MjAwMH0.J3rlBCmI_AiYJDoc5E9dcw6JL2XS_I_LIPOx2j0ta5r7Z0Kc_Sspn-of76x2YXUbGJ9gFelqqKzf3g0muofLgQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/requests/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"requests",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTZW5sYTEyMyIsImV4cCI6MTYwOTM2MjAwMH0.J3rlBCmI_AiYJDoc5E9dcw6JL2XS_I_LIPOx2j0ta5r7Z0Kc_Sspn-of76x2YXUbGJ9gFelqqKzf3g0muofLgQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":6,\r\n    \"user\": {\r\n        \"id\": 2\r\n    },\r\n    \"car\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/requests",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/requests/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"requests",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRequests",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8087/api/requests",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"requests"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3MjAyMDAwfQ.mHhWk0whi0HMRSMm8TtznzHrz4tuS_7IiROFTsCl1vKoR64uBLAu2qOoHR1AjtGDEaAfkJTyGTxn8l3zZ8SRbQ",
+						"type": "string"
+					}
+				]
+			},
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Setting",
+			"item": [
+				{
+					"name": "updateSetting",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJKYWNrMTIzIiwiZXhwIjoxNjA3NjM0MDAwfQ.KihTXgEwUXuH7JG4DKw2X3t9gXbJbSh3qrk1hkAFEaIcTtmbmwuFSXnBIfnyY5gNrDptaGFn_mipwUn5t7SV6w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"requestFunctionEnabled\",\r\n    \"access\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8087/api/settings",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

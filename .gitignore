@@ -1,0 +1,12 @@
+# Intellij
+.idea/
+*.iml
+*.iws
+out/
+production/
+/src/META-INF/
+/task-3/
+# Maven
+**/log
+**/target
+/controller/log/
